@@ -1,0 +1,28 @@
+{
+  "name": "diary",
+  "version": "1.0.0",
+  "description": "\"# eli5endeza\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyafizadAswad/eli5endeza.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SyafizadAswad/eli5endeza/issues"
+  },
+  "homepage": "https://github.com/SyafizadAswad/eli5endeza#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  }
+}

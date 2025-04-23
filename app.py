@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
 # Replace with your actual API key (ideally, load from an environment variable)
-GOOGLE_API_KEY = ""
+GOOGLE_API_KEY = "AIzaSyA6mvlg2-e5yGWY1waUD8k-5ZaUupzp1LE"
 
 @app.route('/ask', methods=['POST'])
 def ask_gemini():
