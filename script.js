@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    mode: 'cors',
-                    credentials: 'include',
                     body: JSON.stringify({ question: question, language: language })
                 });
 

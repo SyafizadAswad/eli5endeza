@@ -9,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 const corsOptions = {
-    origin: 'https://syafizadaswad.github.io/eli5endeza', // Your frontend URL
+    origin: 'https://syafizadaswad.github.io', // Your frontend URL
     methods: ['POST', 'GET', 'OPTIONS'], // Allowed methods
     allowedHeaders: ['Content-Type'], // Allowed headers
   };
