@@ -13,3 +13,4 @@ yarn-error.log*
 # Optional: OS-specific files
 .DS_Store
 Thumbs.db
+.vercel
