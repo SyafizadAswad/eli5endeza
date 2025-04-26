@@ -8,8 +8,13 @@ dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
-
+const corsOptions = {
+    origin: 'https://syafizadaswad.github.io/eli5endeza', // Your frontend URL
+    methods: ['POST', 'GET', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type'], // Allowed headers
+  };
+  
+app.use(cors(corsOptions)); // Use the CORS configuration
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
 app.post('/ask', async (req, res) => {
