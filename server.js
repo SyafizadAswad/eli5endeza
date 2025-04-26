@@ -9,7 +9,13 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: ['https://syafizadaswad.github.io'], 
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+  
+app.options('*', cors());
 app.use(bodyParser.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
