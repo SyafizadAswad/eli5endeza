@@ -3,19 +3,10 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import serverless from 'serverless-http'; 
 
 dotenv.config();
-
 const app = express();
 
-app.use(cors({
-    origin: ['https://syafizadaswad.github.io'], 
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-  }));
-  
-app.options('*', cors());
 app.use(bodyParser.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
