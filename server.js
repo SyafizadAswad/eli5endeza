@@ -35,10 +35,8 @@ app.post('/ask', async (req, res) => {
     }
 });
 
-// Comment out manual listen
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on https://eli5endeza.onrender.com/${PORT}`);
 
-export const handler = serverless(app); // EXPORT handler for Vercel
+})

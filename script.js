@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (question) {
             explanationDiv.textContent = 'Thinking...';
             try {
-                await fetch('https://eli5endeza.vercel.app/ask', {
+                const response = await fetch('https://eli5endeza.onrender.com/ask', { // Point to port 5000
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
