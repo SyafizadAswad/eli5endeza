@@ -8,6 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
