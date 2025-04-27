@@ -17,18 +17,16 @@ export default async function handler(req, res) {
         const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
         const prompt = `
-You are a professional teacher in electrical and electronics.
-Explain the following concept like I'm 5 years old, without mentioning that I'm 5 years old.
-Use the "${language}" language.
-If it's not about Electrical or Electronics, reply briefly saying it's unrelated.
-Include 1-2 reference links if possible.
-
-Question:
-${question}
-        `.trim();
+        You are a professional teacher in electrical and electronics.
+        Explain the following concept like I'm 5 years old, without mentioning that I'm 5 years old.
+        Use the "${language}" language.
+        If it's not about Electrical or Electronics, reply briefly saying it's unrelated.
+        Include 1-2 reference links if possible.Question:${question}`;
 
         const result = await model.generateContent(prompt);
         const explanation = result.response.text();
+        console.log(language);
+        console.log(question);
 
         res.status(200).json({ explanation: explanation || "No explanation found." });
     } catch (error) {
