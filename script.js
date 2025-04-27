@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify({ question: question, language: language })
                 });
-
+                
+                res.setHeader('Access-Control-Allow-Credentials', 'true');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
