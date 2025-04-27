@@ -5,41 +5,41 @@ import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 dotenv.config();
+
 const app = express();
 
+// Middleware
+app.use(cors({
+  origin: ['https://syafizadaswad.github.io'], // Your frontend GitHub Pages URL
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}));
 app.use(bodyParser.json());
-const corsOptions = {
-    origin: 'https://syafizadaswad.github.io', // Your frontend URL
-    methods: ['POST', 'GET', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type'], // Allowed headers
-  };
-  
-app.use(cors(corsOptions)); // Use the CORS configuration
+
+// Setup Gemini AI
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
+// Routes
 app.post('/ask', async (req, res) => {
-    const { question, language } = req.body;
+  const { question, language } = req.body;
 
-    if (!question){
-        return res.status(400).json({ error: 'Missing question' });
-    }
+  if (!question) {
+    return res.status(400).json({ error: 'Missing question' });
+  }
 
-    try {
-        const model = genAI.getGenerativeModel({ model: `gemini-2.0-flash` });
-        const prompt = `Explain this electrical and electronics concept like I'm 5 (but don't explicitly tell them they're 5 years old), but in "${language}". Link to any reference resources if possible. If the question doesn't relate to Electrical and Electronics, say it super shortly: "${question}"`;
+  try {
+    const model = genAI.getGenerativeModel({ model: `gemini-2.0-flash` });
+    const prompt = `Explain this electrical and electronics concept like I'm 5 (but don't explicitly tell them they're 5 years old), but in "${language}". Link to any reference resources if possible. If the question doesn't relate to Electrical and Electronics, say it super shortly: "${question}"`;
 
-        const result = await model.generateContent(prompt);
-        const response = result.response.text();
+    const result = await model.generateContent(prompt);
+    const response = result.response.text();
 
-        res.json({ explanation: response });
-    } catch (err) {
-        console.error('Error generating explanation:', err);
-        res.status(500).json({ error: 'Failed to generate explanation.' });
-    }
+    res.json({ explanation: response });
+  } catch (err) {
+    console.error('Error generating explanation:', err);
+    res.status(500).json({ error: 'Failed to generate explanation.' });
+  }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on https://eli5endeza.onrender.com/${PORT}`);
-
-})
+// This is the important line for Vercel
+export default app;
