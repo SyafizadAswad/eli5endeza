@@ -17,7 +17,8 @@ export default async function handler(req, res) {
         const prompt = `Explain this electrical and electronics concept like I'm 5 (but don't explicitly say they are 5), in "${language}". Link references if possible. Short reply if not related. Question: "${question}"`;
 
         const result = await model.generateContent(prompt);
-        const response = result.response.text();
+        const response = await result.response.candidates?.[0]?.content?.parts?.[0]?.text || "No explanation available.";
+
 
         res.status(200).json({ explanation: response });
     } catch (error) {
