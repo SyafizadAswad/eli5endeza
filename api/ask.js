@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY); // instantiate once outside the handler
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY); // initialize once
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -9,16 +9,26 @@ export default async function handler(req, res) {
 
     const { question, language } = req.body;
 
-    if (!question) {
-        return res.status(400).json({ error: 'Missing question' });
+    if (!question || !language) {
+        return res.status(400).json({ error: 'Missing question or language' });
     }
 
     try {
-        const model = genAI.getGenerativeModel({ model: `gemini-2.0-flash` });
-        const prompt = `Explain this electrical and electronics concept like I'm 5 (without saying it's for a 5-year-old), in "${language}". Include reference links if possible. If the question isn't about Electrical/Electronics, say so very shortly. Question: "${question}"`;
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+
+        const prompt = `
+You are a professional teacher in electrical and electronics.
+Explain the following concept like I'm 5 years old, without mentioning that I'm 5 years old.
+Use the "${language}" language.
+If it's not about Electrical or Electronics, reply briefly saying it's unrelated.
+Include 1-2 reference links if possible.
+
+Question:
+${question}
+        `.trim();
 
         const result = await model.generateContent(prompt);
-        const explanation = result.response.text(); // simple safe usage
+        const explanation = result.response.text();
 
         res.status(200).json({ explanation: explanation || "No explanation found." });
     } catch (error) {
