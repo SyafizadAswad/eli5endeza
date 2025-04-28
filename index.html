@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explain E&E Concepts</title>
-    <link rel="stylesheet" href="ref/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="ref/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Explain Electrical and Electronics Concepts Like I'm 5</h1>
-        <div class="input-area">
-            <label for="question">Ask your question:</label>
-            <textarea id="question" placeholder="What is Ohm's Law?"></textarea>
-            <textarea id="language" placeholder="Input your spoken language"></textarea>
-            <button id="askButton">Explain!</button>
-        </div>
-        <div class="output-area">
-            <h2>Explanation:</h2>
-            <div id="explanation"></div>
-        </div>
+      <h1>Explain Electrical and Electronics Concepts</h1>
+      <div class="input-area">
+        <label for="question">Ask your question:</label>
+        <textarea
+          id="question"
+          placeholder="What is Ohm's Law?"
+          rows="3"
+        ></textarea>
+
+        <label for="language">Preferred language:</label>
+        <textarea
+          id="language"
+          placeholder="Input your spoken language"
+          rows="2"
+        ></textarea>
+
+        <label for="style">Explain Like:</label>
+        <select id="style" name="style">
+          <option value="child">a child</option>
+          <option value="teen">a teenager</option>
+          <option value="college student" selected>a college student</option>
+          <option value="expert">an expert</option></select
+        ><br /><br />
+
+        <button id="askButton">Explain!</button>
+      </div>
+
+      <div class="output-area">
+        <h2>Explanation:</h2>
+        <div id="explanation"></div>
+        <div id="imageContainer"></div>
+      </div>
     </div>
+
     <script src="script.js"></script>
-    <!-- <script src="server.js"></script> -->
-</body>
+  </body>
 </html>

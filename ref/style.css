@@ -1,76 +1,102 @@
+/* ref/style.css */
 body {
-    font-family: sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: #000000; /* black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
+  background-color: #222222; /* dark gray container */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(29, 205, 159, 0.2); /* subtle green shadow */
+  width: 80%;
+  max-width: 600px;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+  text-align: center;
+  color: #1dcd9f; /* vibrant green text */
+  margin-bottom: 20px;
 }
 
 .input-area label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #1dcd9f; /* label text green */
 }
 
 .input-area textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #1dcd9f; /* green border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #000000; /* black textarea background */
+  color: #ffffff; /* white text */
+}
+
+.input-area select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #1dcd9f;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .input-area button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+  background-color: #1dcd9f; /* green button */
+  color: #000000; /* black text on button */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .input-area button:hover {
-    background-color: #0056b3;
+  background-color: #169976; /* darker green on hover */
 }
 
 .output-area {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #1dcd9f;
+  border-radius: 4px;
+  background-color: #000000; /* black background for output */
 }
 
 .output-area h2 {
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 10px;
+  color: #1dcd9f;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 #explanation {
-    font-size: 16px;
-    color: #555;
-    white-space: pre-wrap; /* Preserve formatting and wrap text */
+  font-size: 16px;
+  color: #ffffff; /* white text for explanations */
+  white-space: pre-wrap;
+}
+
+#imageContainer {
+  margin-top: 15px;
+}
+
+#imageContainer img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #1dcd9f; /* optional: green border around images */
+  border-radius: 4px;
 }
