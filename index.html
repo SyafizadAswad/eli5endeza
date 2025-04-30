@@ -9,36 +9,79 @@
   <body>
     <div class="container">
       <h1>Explain Electrical and Electronics Concepts</h1>
-      <div class="input-area">
-        <label for="question">Ask your question:</label>
-        <textarea
-          id="question"
-          placeholder="What is Ohm's Law?"
-          rows="3"
-        ></textarea>
 
-        <label for="language">Preferred language:</label>
-        <textarea
-          id="language"
-          placeholder="Input your spoken language"
-          rows="2"
-        ></textarea>
-
-        <label for="style">Explain Like:</label>
-        <select id="style" name="style">
-          <option value="child">a child</option>
-          <option value="teen">a teenager</option>
-          <option value="college student" selected>a college student</option>
-          <option value="expert">an expert</option></select
-        ><br /><br />
-
-        <button id="askButton">Explain!</button>
+      <div id="mode-selection">
+        <p style="color: #ffffff">Pick an option:</p>
+        <button id="learnButton" class="mode-button">I want to learn</button>
+        <button id="quizButton" class="mode-button">
+          I want to do quizzes
+        </button>
       </div>
 
-      <div class="output-area">
-        <h2>Explanation:</h2>
-        <div id="explanation"></div>
-        <div id="imageContainer"></div>
+      <div id="learn-section" class="hidden">
+        <button id="backToMenuLearn" class="back-button">Back to Menu</button>
+        <div class="input-area">
+          <label for="learn-question">Ask your question:</label>
+          <textarea
+            id="learn-question"
+            placeholder="What is Ohm's Law?"
+            rows="3"
+          ></textarea>
+
+          <label for="learn-language">Preferred language:</label>
+          <textarea
+            id="learn-language"
+            placeholder="Input your spoken language"
+            rows="2"
+          ></textarea>
+
+          <label for="learn-style">Explain Like:</label>
+          <select id="learn-style" name="style">
+            <option value="child">a child</option>
+            <option value="teen">a teenager</option>
+            <option value="college student" selected>a college student</option>
+            <option value="expert">an expert</option></select
+          ><br /><br />
+
+          <button id="askButton">Explain!</button>
+        </div>
+
+        <div class="output-area">
+          <h2>Explanation:</h2>
+          <div id="explanation"></div>
+          <div id="imageContainer"></div>
+        </div>
+      </div>
+
+      <div id="quiz-section" class="hidden">
+        <button id="backToMenuQuiz" class="back-button">Back to Menu</button>
+        <div class="input-area">
+          <p style="color: #ffffff">Choose a quiz topic:</p>
+          <input
+            type="text"
+            id="quiz-topic-input"
+            placeholder="Enter a topic (optional)"
+          />
+          <div id="suggested-topics"></div>
+
+          <label for="quiz-language">Preferred language:</label>
+          <textarea
+            id="quiz-language"
+            placeholder="Input your spoken language"
+            rows="2"
+          ></textarea>
+
+          <button id="generateQuizButton">Generate Quiz</button>
+        </div>
+
+        <div class="output-area">
+          <h2>Quiz:</h2>
+          <div id="quiz-questions"></div>
+          <button id="submitQuizButton" class="submit-button hidden">
+            Submit Answers
+          </button>
+          <div id="quiz-feedback"></div>
+        </div>
       </div>
     </div>
 
